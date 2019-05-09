@@ -11,13 +11,13 @@
 
 struct CommandLine{
   ~CommandLine();
-  CommandLine();
+  explicit CommandLine();
 
   CommandLine(CommandLine const&);
   CommandLine& operator=(CommandLine const&);
 
-  CommandLine(CommandLine &&);
-  CommandLine& operator=(CommandLine &&);
+  CommandLine(CommandLine &&) noexcept;
+  CommandLine& operator=(CommandLine &&) noexcept;
 
   void add_int_command(std::string name, std::string description, int &value);
   void add_string_command(std::string name, std::string description, std::string &value);

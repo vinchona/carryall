@@ -4,7 +4,6 @@
 #include <map>
 
 using namespace std;
-using namespace peanuts;
 
 struct CommandLine::Implementation
 {
@@ -32,9 +31,23 @@ struct CommandLine::Implementation
   }
 };
 
-CommandLine::CommandLine()
-{
-  implementation.reset(new Implementation{});
+CommandLine::~CommandLine() = default;
+
+CommandLine::CommandLine() : implementation{new Implementation{}}
+{}
+
+CommandLine::CommandLine(CommandLine &&) noexcept = default;
+CommandLine& CommandLine::operator=(CommandLine &&) noexcept = default;
+
+CommandLine::CommandLine( CommandLine const& command_line)
+  : implementation{new Implementation{*command_line.implementation}}
+{}
+
+CommandLine& CommandLine::operator=( CommandLine const& command_line) {
+  if (this != &command_line)
+    implementation.reset(new Implementation{*command_line.implementation});
+
+  return *this;
 }
 
 static void throw_if_empty(queue<string> const &line)
