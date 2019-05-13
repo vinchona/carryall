@@ -8,15 +8,12 @@
 
 struct semaphore
 {
-  semaphore(size_t count = 0) :
-    count{count}
-  {
-  }
+  semaphore(size_t count = 0) : count{count} {}
 
-  semaphore(const semaphore &&) = delete;
-  semaphore(semaphore &&) = delete;
-  semaphore & operator = (const semaphore &) = delete;
-  semaphore & operator = (semaphore &&) = delete;
+  semaphore(semaphore const&) = delete;
+  semaphore(semaphore&&) = delete;
+  semaphore& operator=(semaphore const&) = delete;
+  semaphore& operator=(semaphore&&) = delete;
 
   ~semaphore() = default;
 
@@ -30,8 +27,7 @@ struct semaphore
   void wait()
   {
     std::unique_lock<std::mutex> lock(mutex);
-    condition_variable.wait(lock, [&] { return count > 0;
-                     });
+    condition_variable.wait(lock, [&] { return count > 0; });
     --count;
   }
 
@@ -40,6 +36,5 @@ private:
   std::condition_variable condition_variable;
   size_t count;
 };
-
 
 #endif /* __SEMAPHORE__ */
