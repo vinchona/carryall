@@ -3,38 +3,25 @@
 #ifndef SEMAPHORE_HPP
 #define SEMAPHORE_HPP
 
-#include <condition_variable>
-#include <mutex>
+#include <memory>
 
-struct semaphore
+struct Semaphore
 {
-  semaphore(size_t count = 0) : count{count} {}
+  ~Semaphore();
+  Semaphore(size_t count = 0);
 
-  semaphore(semaphore const&) = delete;
-  semaphore(semaphore&&) = delete;
-  semaphore& operator=(semaphore const&) = delete;
-  semaphore& operator=(semaphore&&) = delete;
+  Semaphore(Semaphore const&) = delete;
+  Semaphore& operator=(Semaphore const&) = delete;
 
-  ~semaphore() = default;
+  Semaphore(Semaphore&&) = delete;
+  Semaphore& operator=(Semaphore&&) = delete;
 
-  void signal()
-  {
-    std::unique_lock<std::mutex> lock(mutex);
-    ++count;
-    condition_variable.notify_one();
-  }
-
-  void wait()
-  {
-    std::unique_lock<std::mutex> lock(mutex);
-    condition_variable.wait(lock, [&] { return count > 0; });
-    --count;
-  }
+  void signal(void);
+  void wait(void);
 
 private:
-  std::mutex mutex;
-  std::condition_variable condition_variable;
-  size_t count;
+  struct Implementation;
+  std::unique_ptr<Implementation> implementation;
 };
 
 #endif /* __SEMAPHORE__ */
