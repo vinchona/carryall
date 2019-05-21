@@ -14,10 +14,7 @@ struct Semaphore::Implementation
 
 Semaphore::~Semaphore() = default;
 
-Semaphore::Semaphore(size_t count) : implementation{new Implementation{}}
-{
-  implementation->count = count;
-}
+Semaphore::Semaphore(size_t count) : implementation{new Implementation{}} { implementation->count = count; }
 
 void Semaphore::signal(void)
 {
@@ -32,5 +29,3 @@ void Semaphore::wait(void)
   implementation->condition_variable.wait(lock, [&] { return implementation->count > 0; });
   --implementation->count;
 }
-
-
