@@ -7,6 +7,9 @@
 #include <mutex>
 #include <queue>
 
+namespace carryall
+{
+
 template<typename T>
 struct BlockingQueue
 {
@@ -44,9 +47,11 @@ struct BlockingQueue
   }
 
   private:
-  Semaphore semaphore;
+  carryall::Semaphore semaphore;
   std::queue<T> queue;
   std::mutex mutex;
 };
+
+} // namespace carryall
 
 #endif /* __BLOCKING_QUEUE__ */

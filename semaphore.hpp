@@ -5,6 +5,9 @@
 
 #include <memory>
 
+namespace carryall
+{
+
 struct Semaphore
 {
   ~Semaphore();
@@ -23,5 +26,7 @@ private:
   struct Implementation;
   std::unique_ptr<Implementation> implementation;
 };
+
+} // namespace carryall
 
 #endif /* __SEMAPHORE__ */

@@ -9,6 +9,9 @@
 #include <queue>
 #include <string>
 
+namespace carryall
+{
+
 struct CommandLine
 {
   ~CommandLine();
@@ -32,5 +35,7 @@ private:
   struct Implementation;
   std::unique_ptr<Implementation> implementation;
 };
+
+} // namespace carryall
 
 #endif /* __COMMAND_LINE__ */
