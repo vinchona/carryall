@@ -20,8 +20,7 @@ namespace carryall
         std::unique_lock<std::mutex> sync(mutex);
         on_process = on_delete;
         sync.unlock();
-        T unused;
-        tasks.push(Task{true, unused} );
+        tasks.push(Task{true, T{}} );
         thread.join();
       }
 
