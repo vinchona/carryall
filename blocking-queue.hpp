@@ -3,15 +3,14 @@
 #ifndef BLOCKING_QUEUE_HPP
 #define BLOCKING_QUEUE_HPP
 
-#include <semaphore.hpp>
 #include <mutex>
 #include <queue>
+#include <semaphore.hpp>
 
 namespace carryall
 {
 
-template<typename T>
-struct BlockingQueue
+template <typename T> struct BlockingQueue
 {
   ~BlockingQueue() = default;
   BlockingQueue() = default;
@@ -22,7 +21,7 @@ struct BlockingQueue
   BlockingQueue(BlockingQueue&&) = delete;
   BlockingQueue& operator=(BlockingQueue&&) = delete;
 
-  void push(T const & value)
+  void push(T const& value)
   {
     std::unique_lock<std::mutex> lock(mutex);
     queue.push(value);
@@ -46,7 +45,7 @@ struct BlockingQueue
     queue.pop();
   }
 
-  private:
+private:
   carryall::Semaphore semaphore;
   std::queue<T> queue;
   std::mutex mutex;
