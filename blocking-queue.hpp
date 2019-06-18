@@ -10,7 +10,7 @@
 namespace carryall
 {
 
-template <typename T> struct BlockingQueue
+template <typename T> struct BlockingQueue final
 {
   ~BlockingQueue() = default;
   BlockingQueue() = default;

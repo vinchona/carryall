@@ -12,16 +12,16 @@
 namespace carryall
 {
 
-struct CommandLine
+struct CommandLine final
 {
   ~CommandLine();
-  explicit CommandLine();
+  CommandLine();
 
-  CommandLine(CommandLine const&);
-  CommandLine& operator=(CommandLine const&);
+  CommandLine(CommandLine const&) = delete;
+  CommandLine& operator=(CommandLine const&) = delete;
 
-  CommandLine(CommandLine&&) noexcept;
-  CommandLine& operator=(CommandLine&&) noexcept;
+  CommandLine(CommandLine&&) = delete;
+  CommandLine& operator=(CommandLine&&) = delete;
 
   void add_int_command(std::string name, std::string description, int& value);
   void add_string_command(std::string name, std::string description, std::string& value);

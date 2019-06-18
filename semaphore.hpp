@@ -8,7 +8,7 @@
 namespace carryall
 {
 
-struct Semaphore
+struct Semaphore final
 {
   ~Semaphore();
   Semaphore(size_t count = 0);

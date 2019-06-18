@@ -10,17 +10,17 @@ struct CommandLine::Implementation
 {
   struct Command
   {
-    Command(std::string name, std::string description, std::function<void(std::queue<std::string>&)> parse)
+    Command(string name, string description, function<void(queue<string>&)> parse)
         : name{name}, description{description}, parse{parse}
     {
     }
 
-    std::string const name;
-    std::string const description;
-    std::function<void(std::queue<std::string>& line)> const parse;
+    string const name;
+    string const description;
+    function<void(queue<string>& line)> const parse;
   };
 
-  std::map<std::string, Command> commands;
+  map<string, Command> commands;
   size_t biggest_commands_name_size() const
   {
     size_t biggest_name_size = 0;
@@ -35,22 +35,6 @@ struct CommandLine::Implementation
 CommandLine::~CommandLine() = default;
 
 CommandLine::CommandLine() : implementation{new Implementation{}} {}
-
-CommandLine::CommandLine(CommandLine&&) noexcept = default;
-CommandLine& CommandLine::operator=(CommandLine&&) noexcept = default;
-
-CommandLine::CommandLine(CommandLine const& command_line)
-    : implementation{new Implementation{*command_line.implementation}}
-{
-}
-
-CommandLine& CommandLine::operator=(CommandLine const& command_line)
-{
-  if (this != &command_line)
-    implementation.reset(new Implementation{*command_line.implementation});
-
-  return *this;
-}
 
 static void throw_if_empty(queue<string> const& line)
 {

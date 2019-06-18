@@ -12,7 +12,7 @@
 namespace carryall
 {
 
-template <typename T> struct Worker
+template <typename T> struct Worker final
 {
   ~Worker()
   {
