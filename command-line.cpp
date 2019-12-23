@@ -50,7 +50,7 @@ static void throw_if_unexpected_format(stringstream& ss, string expected, string
 
 void CommandLine::add_int_command(string name, string description, int& value)
 {
-  auto const pop_size = [&](queue<string>& line) {
+  auto const pop_size = [&](queue<string>& line) -> void {
     throw_if_empty(line);
     auto const word = line.front();
     line.pop();
@@ -64,7 +64,7 @@ void CommandLine::add_int_command(string name, string description, int& value)
     value = size;
   };
 
-  auto new_command = Implementation::Command(name + " <int>", description, pop_size);
+  auto new_command = Implementation::Command{name + " <int>", description, pop_size};
   implementation->commands.insert(pair<string, Implementation::Command>{name, new_command});
 }
 
@@ -76,7 +76,7 @@ void CommandLine::add_string_command(string name, string description, string& va
     line.pop();
   };
 
-  auto new_command = Implementation::Command(name + " <string>", description, pop_string);
+  auto new_command = Implementation::Command{name + " <string>", description, pop_string};
   implementation->commands.insert(pair<string, Implementation::Command>{name, new_command});
 }
 
@@ -84,13 +84,13 @@ void CommandLine::add_flag_command(string name, string description, bool& value,
 {
   auto const pop_flag = [&](queue<string>&) -> void { value = flag; };
 
-  auto new_command = Implementation::Command(name, description, pop_flag);
+  auto new_command = Implementation::Command{name, description, pop_flag};
   implementation->commands.insert(pair<string, Implementation::Command>{name, new_command});
 }
 
 void CommandLine::add_user_command(string name, string description, function<void(queue<string>& line)> parse)
 {
-  auto new_command = Implementation::Command(name, description, parse);
+  auto new_command = Implementation::Command{name, description, parse};
   implementation->commands.insert(pair<string, Implementation::Command>{name, new_command});
 }
 

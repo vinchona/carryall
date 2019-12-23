@@ -16,7 +16,7 @@ template <typename T> struct Worker final
 {
   ~Worker()
   {
-    std::unique_lock<std::mutex> sync(mutex);
+    std::unique_lock<std::mutex> sync{mutex};
     on_process = on_delete;
     sync.unlock();
     tasks.push(Task{true, T{}});
@@ -60,7 +60,7 @@ private:
         break;
 
       std::function<void(T&)> todo{nullptr};
-      std::unique_lock<std::mutex> sync(mutex);
+      std::unique_lock<std::mutex> sync{mutex};
       todo = on_process;
       sync.unlock();
 
