@@ -7,7 +7,7 @@ Useful C++ libraries for projects
 * None
 
 ### Optionals
-* clang-format (8.0): `apt install clang-format-8.0`
+* clang-format (version >= 8.0): `apt install clang-format-8`
 
 ## Installation
 ToDo
