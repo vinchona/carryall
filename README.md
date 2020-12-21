@@ -4,7 +4,7 @@ Useful C++ libraries for projects
 # Getting started
 ## Prerequisites
 ### Mandatories  
-* None
+* pthread
 
 ### Optionals
 * clang-format (version >= 8.0): `apt install clang-format-8`
