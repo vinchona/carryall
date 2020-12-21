@@ -9,7 +9,7 @@ Useful C++ libraries for projects
 ### Optionals
 * clang-format (version >= 8.0): `apt install clang-format-8`
 
-## Installation
+## Installation
 ToDo
 
 # API
