@@ -57,7 +57,7 @@ private:
       tasks.pull(task);
 
       if (task.quit)
-        break;
+        return;
 
       std::function<void(T&)> todo{nullptr};
       std::unique_lock<std::mutex> sync{mutex};
