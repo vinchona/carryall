@@ -1,4 +1,4 @@
-# carryall
+# Carryall
 Useful C++ libraries for projects
 
 # Getting started
