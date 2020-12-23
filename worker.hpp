@@ -24,7 +24,7 @@ template <typename T> struct Worker final
   }
 
   Worker(std::function<void(T&)> on_process, std::function<void(T&)> on_delete)
-      : on_process{on_process}, on_delete{on_delete}, thread{&Worker::Employee, this}
+      : on_process{on_process}, on_delete{on_delete}, thread{&Worker::employee, this}
   {
   }
 
@@ -49,7 +49,7 @@ private:
   std::function<void(T&)> on_process;
   std::function<void(T&)> on_delete;
 
-  void Employee(void)
+  void employee(void)
   {
     while (true)
     {
