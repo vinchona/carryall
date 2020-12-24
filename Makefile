@@ -15,7 +15,10 @@ CARRYALL_TESTER_APP_TARGET:=$(CARRYALL_TESTER_APP_NAME:%.exe=%)
 
 CARRYALL_TESTER_APP_SRCS:=\
   $(CARRYALL_TESTER_SRCS)\
-  $(this)/tests/tester*.cpp\
+  $(this)/tests/tester-blocking-queue.cpp\
+  $(this)/tests/tester-command-line.cpp\
+  $(this)/tests/tester-semaphore.cpp\
+  $(this)/tests/tester-worker.cpp\
 
 CARRYALL_TESTER_APP_INCLUDE_DIRECTORIES:=\
   $(CARRYALL_TESTER_INCLUDE_DIRECTORIES)\
@@ -55,7 +58,7 @@ CARRYALL_FUZZER_APP_TARGET:=$(CARRYALL_FUZZER_APP_NAME:%.exe=%)
 
 CARRYALL_FUZZER_APP_SRCS:=\
   $(CARRYALL_FUZZER_SRCS)\
-  $(this)/tests/fuzzer-*.cpp\
+  $(this)/tests/fuzzer-blocking-queue.cpp\
 
 CARRYALL_FUZZER_APP_INCLUDE_DIRECTORIES:=\
   $(CARRYALL_FUZZER_INCLUDE_DIRECTORIES)\
