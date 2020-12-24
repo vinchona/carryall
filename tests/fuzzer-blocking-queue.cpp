@@ -6,7 +6,7 @@
 
 using namespace carryall;
 
-PEANUTS_FUZZ("Blocking queue fuzzing input")
+PEANUTS_FUZZ("BlockingQueue: Random number of inputs")
 {
 	 BlockingQueue<char> bloquing_queue;
 	 for (size_t size = 0; size < peanuts_size; size++)
