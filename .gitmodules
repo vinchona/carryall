@@ -1,0 +1,3 @@
+[submodule "third-parties/peanuts"]
+	path = third-parties/peanuts
+	url = ../../kimye/peanuts.git
