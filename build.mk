@@ -34,6 +34,7 @@ $(BIN)/%.exe:
 	@echo "CXX $@ $(ECHO_OUTPUT)"
 
 $(BIN)/%.so:
+	@mkdir -p $(dir $@)
 	$(QUIET)$(CXX) $(CFLAGS) -shared -Wl,-soname,$(notdir $@).$(MAJOR) -o "$@.$(VERSION)" $^ $(LDFLAGS)
 	@echo "LD $@ $(ECHO_OUTPUT)"
 	@ln -fs "$(@:$(BIN)/%=%).$(VERSION)" $@.$(MAJOR)
