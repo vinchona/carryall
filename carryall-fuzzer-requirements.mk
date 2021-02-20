@@ -10,12 +10,12 @@ CARRYALL_FUZZER_SRCS:=\
   $(PEANUTS_FUZZER_SRCS:%=$(this.carryall-fuzzer-requirements)/third-parties/peanuts/%)\
 
 CARRYALL_FUZZER_INCLUDE_DIRECTORIES:=\
-  $(CARRYALL_INCLUDE_DIRECTORIES:%=-I%)\
-  $(PEANUTS_FUZZER_INCLUDE_DIRECTORIES:%=-I$(this.carryall-fuzzer-requirements)/third-parties/peanuts/%)\
+  $(CARRYALL_INCLUDE_DIRECTORIES)\
+  $(PEANUTS_FUZZER_INCLUDE_DIRECTORIES:%=$(this.carryall-fuzzer-requirements)/third-parties/peanuts/%)\
 
 CARRYALL_FUZZER_INCLUDE_FILES:=\
-  $(CARRYALL_INCLUDE_FILES:%=-include %)\
-  $(PEANUTS_FUZZER_INCLUDE_FILES:%=-include $(this.carryall-fuzzer-requirements)/third-parties/peantus/%)\
+  $(CARRYALL_INCLUDE_FILES)\
+  $(PEANUTS_FUZZER_INCLUDE_FILES:%=$(this.carryall-fuzzer-requirements)/third-parties/peantus/%)\
 
 CARRYALL_FUZZER_CFLAGS:=\
   $(CARRYALL_CFLAGS)\

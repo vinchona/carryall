@@ -10,12 +10,12 @@ CARRYALL_TESTER_SRCS:=\
   $(PEANUTS_TESTER_SRCS:%=$(this.carryall-tester-requirements)/third-parties/peanuts/%)\
 
 CARRYALL_TESTER_INCLUDE_DIRECTORIES:=\
-  $(CARRYALL_INCLUDE_DIRECTORIES:%=-I%)\
-  $(PEANUTS_TESTER_INCLUDE_DIRECTORIES:%=-I$(this.carryall-tester-requirements)/third-parties/peanuts/%)\
+  $(CARRYALL_INCLUDE_DIRECTORIES)\
+  $(PEANUTS_TESTER_INCLUDE_DIRECTORIES:%=$(this.carryall-tester-requirements)/third-parties/peanuts/%)\
 
 CARRYALL_TESTER_INCLUDE_FILES:=\
-  $(CARRYALL_INCLUDE_FILES:%=-include %)\
-  $(PEANUTS_TESTER_INCLUDE_FILES:%=-include $(this.carryall-tester-requirements)/third-parties/peantus/%)\
+  $(CARRYALL_INCLUDE_FILES)\
+  $(PEANUTS_TESTER_INCLUDE_FILES:%=$(this.carryall-tester-requirements)/third-parties/peantus/%)\
 
 CARRYALL_TESTER_CFLAGS:=\
   $(CARRYALL_CFLAGS)\
