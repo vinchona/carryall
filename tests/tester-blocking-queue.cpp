@@ -6,4 +6,4 @@
 
 using namespace carryall;
 
-PEANUTS_TEST("BlockingQueue: Creation/Deletion") { BlockingQueue<int> bloquing_queue; }
+PEANUTS_TEST("BlockingQueue: Creation/Deletion") { BlockingQueue<int> blocking_queue; }
