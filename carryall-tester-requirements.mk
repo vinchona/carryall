@@ -8,6 +8,10 @@ include $(this.carryall-tester-requirements)/third-parties/peanuts/peanuts-teste
 CARRYALL_TESTER_SRCS:=\
   $(CARRYALL_SRCS)\
   $(PEANUTS_TESTER_SRCS:%=$(this.carryall-tester-requirements)/third-parties/peanuts/%)\
+  $(this)/tests/unit/blocking-queue.cpp\
+  $(this)/tests/unit/command-line.cpp\
+  $(this)/tests/unit/semaphore.cpp\
+  $(this)/tests/unit/worker.cpp\
 
 CARRYALL_TESTER_INCLUDE_DIRECTORIES:=\
   $(CARRYALL_INCLUDE_DIRECTORIES)\

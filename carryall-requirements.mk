@@ -12,7 +12,11 @@ CARRYALL_INCLUDE_DIRECTORIES:=\
 CARRYALL_INCLUDE_FILES:=\
 
 CARRYALL_CFLAGS:=\
+  -pedantic-errors\
   -pthread\
+  -Wall\
+  -Werror\
+  -Wextra\
 
 CARRYALL_LDFLAGS:=\
   -lpthread\

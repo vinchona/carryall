@@ -8,6 +8,7 @@ include $(this.carryall-fuzzer-requirements)/third-parties/peanuts/peanuts-fuzze
 CARRYALL_FUZZER_SRCS:=\
   $(CARRYALL_SRCS)\
   $(PEANUTS_FUZZER_SRCS:%=$(this.carryall-fuzzer-requirements)/third-parties/peanuts/%)\
+  $(this)/tests/fuzz/blocking-queue.cpp\
 
 CARRYALL_FUZZER_INCLUDE_DIRECTORIES:=\
   $(CARRYALL_INCLUDE_DIRECTORIES)\
