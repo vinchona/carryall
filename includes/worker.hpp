@@ -35,7 +35,6 @@ template <typename T> struct Worker final
   Worker& operator=(Worker&&) = delete;
 
   void work(T const& task) { tasks.push(Task{false, task}); }
-
   void work(T&& task) { tasks.push(Task{false, task}); }
 
 private:
