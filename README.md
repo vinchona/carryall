@@ -11,7 +11,7 @@ Useful C++ libraries for projects
 * [peanuts](https://gitlab.com/kimye/peanuts)'s repository access to build tests
 
 ## Installation
-1. Clone the current repository: `git clone https://gitlab.com/project/kimye/carryall.git`
+1. Clone the current repository: `git clone https://github.com/vinchona/carryall.git`. 
 2. Install submodules:
 * `git submodule sync --recursive`
 * `git submodule update --init --recursive`
